@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/api";
 
@@ -27,6 +28,7 @@ function Products() {
       <p> product count : {products.length}</p>
     </div>
   );
+ 
 }
 
 export default Products;
