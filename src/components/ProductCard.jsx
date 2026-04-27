@@ -10,7 +10,9 @@ function ProductCard({ product }) {
         <Card.Text className="fw-bold text-success">
           ${product.price}
         </Card.Text>
-        <Button className="mt-auto" variant="primary"> View Details</Button>
+        <Button as={Link}
+          to={`/product/${product.id}`}
+         className="mt-auto" variant="primary"> View Details</Button>
       </Card.Body>
     </Card>
     
