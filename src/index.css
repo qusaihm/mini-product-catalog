@@ -3,3 +3,12 @@
   margin: 0;
   padding: 0;
 }
+
+.product-card {
+  transition: all 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}

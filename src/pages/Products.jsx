@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/api";
-import { Row, Col, Alert } from "react-bootstrap";
+import { Row, Col, Alert,Container,Spinner } from "react-bootstrap";
 import ProductCard from "../components/ProductCard";
 
 
@@ -31,8 +31,9 @@ function Products() {
 }, []);
 
 if(loader){
-  return (<div>
-  <h1>Loading...</h1>
+  return (
+  <div className="text-center mt-5">
+  <Spinner animation="border" />
   </div>);
 }
 
@@ -45,15 +46,13 @@ if (error) {
   }
 
   return (
-    <div className="mt-4 px-3"> 
-   <Row  className="g-4">
-  {products.map((product) => (
-    <Col key={product.id} md={2} className="d-flex">
-      <ProductCard product={product} />
-    </Col>
-   ))}
-   </Row>
-  </div>
+    <Container className="mt-4 px-3"> 
+    <Row className="g-4"> 
+      {products.map((product) => ( 
+        <Col key={product.id} xs={12} sm={6} md={4} lg={3} xl={2} className="d-flex"> 
+      <ProductCard product={product} /> </Col> ))} 
+      </Row> 
+      </Container>
   );
  
 }

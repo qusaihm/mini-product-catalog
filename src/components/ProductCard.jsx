@@ -8,7 +8,7 @@ function ProductCard({ product }) {
     const {  addToFavorites } = useContext(FavoritesContext);
  
   return (
-     <Card  className="h-100 d-flex flex-column shadow-sm">
+     <Card  className="product-card h-100 shadow-sm border-0 hover-shadow">
       <Card.Img variant="top" src={product.image}  style={{ height: "150px", objectFit: "contain" }}/>
       <Card.Body className="d-flex flex-column">
         <Card.Title className="text-truncate">{product.title}</Card.Title>
