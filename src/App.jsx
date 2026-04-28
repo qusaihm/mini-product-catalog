@@ -1,6 +1,3 @@
-
-
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppNavbar from "./components/Navbar";
 import Products from "./pages/Products";
