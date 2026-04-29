@@ -41,7 +41,7 @@ useEffect(()=>{
     <Container className="mt-5 text-center">
       <Alert variant="danger">{error}</Alert>
 
-      <Button as={Link} to="/" variant="secondary">
+      <Button as={Link} to="/products" variant="secondary">
       back to product
       </Button>
     </Container>
