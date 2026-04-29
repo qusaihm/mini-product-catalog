@@ -28,13 +28,14 @@ function Favorites() {
 
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>${item.price}</Card.Text>
-                   <Button
+                   
+                </Card.Body>
+                 <Button 
                     variant="danger"
-                    className="mt-auto"
+                    className="p-2 m-4"
                     onClick={() => removeFromFavorites(item) } >
                     Remove
                    </Button>
-                </Card.Body>
               </Card>
             </Col>
           ))}
