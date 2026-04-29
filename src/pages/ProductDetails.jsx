@@ -1,32 +1,29 @@
 import { useEffect, useState } from "react";
-import { useParams,  Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Spinner, Alert, Button } from "react-bootstrap";
 import { getProductById } from "../services/api";
- 
 
 function ProductDetails() {
- const { id } = useParams();
-  
- const [product, setProduct] = useState(null);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
+  const { id } = useParams();
 
-useEffect(()=>{
-  const fetchProduct = async() => {
-    try{
-      const data = await getProductById(id);
-      setProduct(data);
-    }catch(err){
-      setError("Failed to load product");
-    }finally{
-     setLoading(false);
-    }
-  }
-  
-  fetchProduct();
-},[id]);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const data = await getProductById(id);
+        setProduct(data);
+      } catch (err) {
+        setError("Failed to load product");
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchProduct();
+  }, [id]);
 
   if (loading) {
     return (
@@ -36,24 +33,22 @@ useEffect(()=>{
     );
   }
 
-   if (error) {
-  return (
-    <Container className="mt-5 text-center">
-      <Alert variant="danger">{error}</Alert>
+  if (error) {
+    return (
+      <Container className="mt-5 text-center">
+        <Alert variant="danger">{error}</Alert>
 
-      <Button as={Link} to="/products" variant="secondary">
-      back to product
-      </Button>
-    </Container>
-  );
-
+        <Button as={Link} to="/products" variant="secondary">
+          back to product
+        </Button>
+      </Container>
+    );
   }
 
   return (
-     <Container className="mt-4">
-          
-      <Button as={Link} to="/" variant="secondary" className="mb-3"  >
-       Back
+    <Container className="mt-4">
+      <Button as={Link} to="/products" variant="secondary" className="mb-3">
+        Back
       </Button>
 
       <Row>
@@ -78,6 +73,3 @@ useEffect(()=>{
 }
 
 export default ProductDetails;
-
-
- 
