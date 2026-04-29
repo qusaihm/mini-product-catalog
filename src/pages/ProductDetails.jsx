@@ -37,11 +37,16 @@ useEffect(()=>{
   }
 
    if (error) {
-    return (
-      <Alert variant="danger" className="mt-5 text-center">
-        {error}
-      </Alert>
-    );
+  return (
+    <Container className="mt-5 text-center">
+      <Alert variant="danger">{error}</Alert>
+
+      <Button as={Link} to="/" variant="secondary">
+      back to product
+      </Button>
+    </Container>
+  );
+
   }
 
   return (
