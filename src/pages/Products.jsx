@@ -12,11 +12,10 @@ function Products() {
     const fetchData = async () => {
       try {
         const data = await getProducts();
-        console.log(data);
+
         setProducts(data);
       } catch (err) {
         setError("Failed to fetch products ");
-        console.log(err);
       } finally {
         setLoader(false);
       }

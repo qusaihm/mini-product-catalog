@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import FavoritesContext from "../context/FavoritesContext";
+import { toast } from "react-toastify";
 
 function ProductCard({ product }) {
   const { addToFavorites } = useContext(FavoritesContext);
@@ -30,7 +31,12 @@ function ProductCard({ product }) {
           <Button
             variant="outline-danger"
             onClick={() => {
-              addToFavorites(product);
+              const result = addToFavorites(product);
+              if (result === "added") {
+                toast.success("Added to favorites");
+              } else {
+                toast.info("Already in favorites");
+              }
             }}
           >
             Add to Favorites
