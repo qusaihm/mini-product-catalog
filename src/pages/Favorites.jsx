@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import FavoritesContext from "../context/FavoritesContext";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 function Favorites() {
   const { favorites, removeFromFavorites } = useContext(FavoritesContext);
@@ -32,7 +33,10 @@ function Favorites() {
                 <Button
                   variant="danger"
                   className="p-2 m-4"
-                  onClick={() => removeFromFavorites(item)}
+                  onClick={() => {
+                    removeFromFavorites(item);
+                    toast.error("Removed from favorites ");
+                  }}
                 >
                   Remove
                 </Button>

@@ -9,6 +9,9 @@ export function FavoritesProvider({ children }) {
     const exisit = favorites.find((item) => item.id == product.id);
     if (!exisit) {
       setFavorites([...favorites, product]);
+      return "added";
+    } else {
+      return "exists";
     }
   };
 

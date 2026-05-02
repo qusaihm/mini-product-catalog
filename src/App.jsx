@@ -4,6 +4,8 @@ import Products from "./pages/Products";
 import Favorites from "./pages/Favorites";
 import ProductDetails from "./pages/ProductDetails";
 import Home from "./pages/Home";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   );
 }

@@ -2,7 +2,7 @@
 export async function getProducts() {
     try {
         const response = await fetch("https://fakestoreapi.com/products");
-        console.log(response);
+
 
         if (!response.ok) {
             throw new Error("Failed to fetch products");
@@ -12,7 +12,7 @@ export async function getProducts() {
         return data;
 
     } catch (error) {
-        console.error(error);
+
         throw error;
     }
 }
@@ -29,7 +29,7 @@ export async function getProductById(id) {
         return data;
 
     } catch (error) {
-        console.error(error);
+
         throw error;
     }
 }
